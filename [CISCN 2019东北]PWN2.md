@@ -5,12 +5,18 @@
 ### 丢到IDE看一下
 按 shift+f12 看一下字符串，发现没有system和/bin/sh
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711352579899-135f5402-e48a-4ea6-b344-852335ccc132.png#averageHue=%23474643&clientId=u620920a9-0c5a-4&from=paste&height=778&id=u4db6c5e4&originHeight=778&originWidth=1270&originalType=binary&ratio=1&rotation=0&showTitle=false&size=99914&status=done&style=none&taskId=u2ce971c1-d1e2-43e4-b876-c32c3f0e983&title=&width=1270)
+
 回到上方标签（ IDA View-A ）回到主界面按f5查看伪代码
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711352692527-afcf4d9d-6877-4d39-a135-4f0eb2c97599.png#averageHue=%23312f2e&clientId=u620920a9-0c5a-4&from=paste&height=611&id=ud92e9b96&originHeight=611&originWidth=681&originalType=binary&ratio=1&rotation=0&showTitle=false&size=51416&status=done&style=none&taskId=u13a2e265-49fe-4f58-b123-01d09949aa7&title=&width=681)
+
 发现encrypt()函数存在gets溢出
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711352763184-253e4de4-f0d8-49da-9571-6c0791920b65.png#averageHue=%23302f2e&clientId=u620920a9-0c5a-4&from=paste&height=571&id=ub68ac996&originHeight=571&originWidth=432&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29792&status=done&style=none&taskId=ub44cb765-8eae-416f-95fd-f22e5563db2&title=&width=432)
+
 gets没有任何限制，但是储存用户输入的s只有50的大小，加上r的大小就能溢出
 双击s查看
+
 ```
 0000000000000050 s db 48 dup(?)   // s的大小只有50
 -0000000000000020 anonymous_0 dw ?
@@ -132,6 +138,8 @@ if __name__ == '__main__':
 ```
 ### 运行提示
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711354129056-95ca2de8-de74-41a4-98d5-c08e3d114d3f.png#averageHue=%23282624&clientId=u620920a9-0c5a-4&from=paste&height=723&id=ub5aff1b5&originHeight=723&originWidth=721&originalType=binary&ratio=1&rotation=0&showTitle=false&size=78750&status=done&style=none&taskId=ubb332ef5-0879-4ddb-8e14-c52e7bcca2b&title=&width=721)
+
 看到有一排的a时，输入命令：ls
 ls 运行完后 输出 cat flag得到
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711354169453-c9eaac9e-f6ac-4f71-bcbc-fbe6e25f0f7d.png#averageHue=%23252423&clientId=u620920a9-0c5a-4&from=paste&height=707&id=uf1a28670&originHeight=707&originWidth=547&originalType=binary&ratio=1&rotation=0&showTitle=false&size=39501&status=done&style=none&taskId=ua50f74f6-32df-4596-b9b9-5280a4d6056&title=&width=547)
