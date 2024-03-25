@@ -135,6 +135,8 @@ if __name__ == '__main__':
 ```
 ### 运行提示
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711354129056-95ca2de8-de74-41a4-98d5-c08e3d114d3f.png#averageHue=%23282624&clientId=u620920a9-0c5a-4&from=paste&height=723&id=ub5aff1b5&originHeight=723&originWidth=721&originalType=binary&ratio=1&rotation=0&showTitle=false&size=78750&status=done&style=none&taskId=ubb332ef5-0879-4ddb-8e14-c52e7bcca2b&title=&width=721)
+
 看到有一排的a时，输入命令：ls
 ls 运行完后 输出 cat flag得到
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711354169453-c9eaac9e-f6ac-4f71-bcbc-fbe6e25f0f7d.png#averageHue=%23252423&clientId=u620920a9-0c5a-4&from=paste&height=707&id=uf1a28670&originHeight=707&originWidth=547&originalType=binary&ratio=1&rotation=0&showTitle=false&size=39501&status=done&style=none&taskId=ua50f74f6-32df-4596-b9b9-5280a4d6056&title=&width=547)
