@@ -7,8 +7,11 @@
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711352579899-135f5402-e48a-4ea6-b344-852335ccc132.png#averageHue=%23474643&clientId=u620920a9-0c5a-4&from=paste&height=778&id=u4db6c5e4&originHeight=778&originWidth=1270&originalType=binary&ratio=1&rotation=0&showTitle=false&size=99914&status=done&style=none&taskId=u2ce971c1-d1e2-43e4-b876-c32c3f0e983&title=&width=1270)
 回到上方标签（ IDA View-A ）回到主界面按f5查看伪代码
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711352692527-afcf4d9d-6877-4d39-a135-4f0eb2c97599.png#averageHue=%23312f2e&clientId=u620920a9-0c5a-4&from=paste&height=611&id=ud92e9b96&originHeight=611&originWidth=681&originalType=binary&ratio=1&rotation=0&showTitle=false&size=51416&status=done&style=none&taskId=u13a2e265-49fe-4f58-b123-01d09949aa7&title=&width=681)
+
 发现encrypt()函数存在gets溢出
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/43150086/1711352763184-253e4de4-f0d8-49da-9571-6c0791920b65.png#averageHue=%23302f2e&clientId=u620920a9-0c5a-4&from=paste&height=571&id=ub68ac996&originHeight=571&originWidth=432&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29792&status=done&style=none&taskId=ub44cb765-8eae-416f-95fd-f22e5563db2&title=&width=432)
+
 gets没有任何限制，但是储存用户输入的s只有50的大小，加上r的大小就能溢出
 双击s查看
 ```
